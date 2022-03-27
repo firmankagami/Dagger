@@ -46,16 +46,13 @@ class UserAdapter(private val users: MutableList<DataItem>) :
         Glide.with(holder.itemView.context)
             .load(user.avatar)
             .apply(RequestOptions().override(80, 80))
-            .transform(CircleCrop())
             .into(holder.ivAvatar)
 
         holder.tvUserName.text = "${user.firstName} ${user.lastName}"
-        holder.tvEmail.text = user.email
     }
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvUserName: TextView = itemView.findViewById(R.id.itemName)
-        var tvEmail: TextView = itemView.findViewById(R.id.itemEmail)
         var ivAvatar: ImageView = itemView.findViewById(R.id.itemAvatar)
 
     }
